@@ -1,0 +1,10 @@
+instance Pigeon ${pigeons};
+instance Hole ${holes};
+
+[start] {
+	${init}
+};
+
+[end] {
+      ${goals}
+};
