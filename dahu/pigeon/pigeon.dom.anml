@@ -1,0 +1,12 @@
+
+
+type Pigeon;
+type Hole;
+
+fluent boolean in_hole(Pigeon p);
+fluent boolean occupied(Hole h);
+
+action putin(Pigeon p, Hole h) {
+  [all] occupied(h) == false :-> true;
+  [end] in_hole(p) := true;
+};

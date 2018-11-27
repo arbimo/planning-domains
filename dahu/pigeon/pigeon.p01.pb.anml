@@ -1,0 +1,10 @@
+instance Pigeon p1, p2;
+instance Hole h1, h2;
+[start] {
+  occupied(h1) := false;
+  occupied(h2) := false;
+};  
+[end] {
+  in_hole(p1) == true;
+  in_hole(p2) == true;
+};  
