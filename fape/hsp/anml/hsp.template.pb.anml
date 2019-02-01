@@ -1,0 +1,30 @@
+// ${instance_name}
+
+instance Hoist ${anml_hoists};
+instance Position ${anml_positions};
+instance Bar ${anml_bars};
+
+${anml_hoists_reachable_positions}
+
+
+[start] {
+${anml_bars_init_loc}
+    
+${anml_hoists_qualitative_position}    
+
+${anml_hoists_free}
+
+${anml_positions_free}    
+
+${anml_loading_unloading_plant_positions}
+};
+
+/*
+[end] {
+${anml_bars_position_processed_goals}    
+};
+*/
+
+[all] contains {
+    ${anml_bars_position_processed_tasks}    
+};

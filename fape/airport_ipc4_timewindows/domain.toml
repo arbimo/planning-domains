@@ -1,0 +1,11 @@
+DOM="airport_ipc4_timewindows"
+
+[pddl]
+lang="pddl"
+domain-file="./pddl/{DOM}.{PB}.dom.pddl"
+problem-file="./pddl/{DOM}.{PB}.pb.pddl"
+
+[anml-flat]
+lang="anml"
+domain-file="./anml/{DOM}.dom.anml"
+problem-file="./anml/{DOM}.{PB}.pb.anml"

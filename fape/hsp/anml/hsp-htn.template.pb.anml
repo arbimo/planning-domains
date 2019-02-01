@@ -1,0 +1,45 @@
+// ${instance_name}
+
+instance Hoist ${anml_hoists};
+instance Position ${anml_positions};
+instance Bar ${anml_bars};
+
+${anml_hoists_reachable_positions}
+
+
+action process(Bar b) {
+    motivated;
+    constant Position ps;
+    constant Position pe;
+    constant Hoist h;
+
+    [all] ordered(
+        prep: prepare_bar(b, ps),
+        ld: load(h, b, ps),
+        unordered(
+            ${anml_substeps}   
+        ),
+        uld: unload(h, b, pe),
+        fin: finish_bar(b, pe)
+    );
+    start(ld) = end(prep) + 60000;
+    start(fin) = end(uld) + 60000;
+};
+
+
+[start] {
+${anml_bars_init_loc}
+    
+${anml_hoists_qualitative_position}    
+
+${anml_hoists_free}
+
+${anml_positions_free}    
+
+${anml_loading_unloading_plant_positions}
+};
+
+
+[all] contains {
+    ${anml_bars_processed}    
+};

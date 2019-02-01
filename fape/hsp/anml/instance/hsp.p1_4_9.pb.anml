@@ -1,0 +1,95 @@
+// instance1_4_9
+
+instance Hoist h0;
+instance Position p0, p1, p2, p3;
+instance Bar b0, b1, b2, b3, b4, b5, b6, b7, b8;
+
+h0.can_go(p0) := true;
+h0.can_go(p1) := true;
+h0.can_go(p2) := true;
+h0.can_go(p3) := true;
+
+
+
+[start] {
+	b0.at := void;
+	b1.at := void;
+	b2.at := void;
+	b3.at := void;
+	b4.at := void;
+	b5.at := void;
+	b6.at := void;
+	b7.at := void;
+	b8.at := void;
+
+    
+	h0.at := p0;
+    
+
+	h0.free := true;
+
+
+	p0.free := true;
+	p1.free := true;
+	p2.free := true;
+	p3.free := true;
+    
+
+	plant_loading_position := p0;
+	plant_unloading_position := p3;
+};
+
+/*
+[end] {
+	b0.processed(p0) == true;
+	b1.processed(p0) == true;
+	b2.processed(p0) == true;
+	b3.processed(p0) == true;
+	b4.processed(p0) == true;
+	b5.processed(p0) == true;
+	b6.processed(p0) == true;
+	b7.processed(p0) == true;
+	b8.processed(p0) == true;
+	b0.processed(p1) == true;
+	b1.processed(p1) == true;
+	b2.processed(p1) == true;
+	b3.processed(p1) == true;
+	b4.processed(p1) == true;
+	b5.processed(p1) == true;
+	b6.processed(p1) == true;
+	b7.processed(p1) == true;
+	b8.processed(p1) == true;
+	b0.processed(p2) == true;
+	b1.processed(p2) == true;
+	b2.processed(p2) == true;
+	b3.processed(p2) == true;
+	b4.processed(p2) == true;
+	b5.processed(p2) == true;
+	b6.processed(p2) == true;
+	b7.processed(p2) == true;
+	b8.processed(p2) == true;
+    
+};
+*/
+
+[all] contains {
+    	step(b0, p1);
+	step(b1, p1);
+	step(b2, p1);
+	step(b3, p1);
+	step(b4, p1);
+	step(b5, p1);
+	step(b6, p1);
+	step(b7, p1);
+	step(b8, p1);
+	step(b0, p2);
+	step(b1, p2);
+	step(b2, p2);
+	step(b3, p2);
+	step(b4, p2);
+	step(b5, p2);
+	step(b6, p2);
+	step(b7, p2);
+	step(b8, p2);
+    
+};

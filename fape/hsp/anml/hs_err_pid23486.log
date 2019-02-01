@@ -1,0 +1,819 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f4a25358ca4, pid=23486, tid=0x00007f4a084a0700
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_192-b12) (build 1.8.0_192-b12)
+# Java VM: GraalVM 1.0.0-rc9 (25.192-b12-jvmci-0.49 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# V  [libjvm.so+0x5a9ca4]  frame::sender(RegisterMap*) const+0x324
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f4a202fa000):  JavaThread "JVMCI CompilerThread0" daemon [_thread_in_Java, id=23511, stack(0x00007f4a083a1000,0x00007f4a084a1000)]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x000000007ffffff7
+
+Registers:
+RAX=0x000000007fffffff, RBX=0x00007f4a0849b120, RCX=0xffffffffffffff01, RDX=0x00007f4a25e28968
+RSP=0x00007f4a0849b0d0, RBP=0x00007f4a0849b100, RSI=0x00007f4a0849b250, RDI=0x00007f4a0849b120
+R8 =0x00007f4a0b5a2000, R9 =0x000000000000002c, R10=0x00007f4a0be119a8, R11=0x0000000000000001
+R12=0x00007f4a0849b288, R13=0x00007f4a0849ef80, R14=0x00007f4a0849b288, R15=0x00007f4a0849b120
+RIP=0x00007f4a25358ca4, EFLAGS=0x0000000000010246, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f4a0849b0d0)
+0x00007f4a0849b0d0:   0000044446505853 00007f4a0849b250
+0x00007f4a0849b0e0:   0000000000000002 0000000000000800
+0x00007f4a0849b0f0:   00007f4a0849b288 00007f4a0849b120
+0x00007f4a0849b100:   00007f4a0849b1a0 00007f4a2534cc16
+0x00007f4a0849b110:   0000000000000000 00007f4a25e28968
+0x00007f4a0849b120:   00007f4a0849c280 00007f4a0b5a27a7
+0x00007f4a0849b130:   00007f4a0b5a2690 0000000000000000
+0x00007f4a0849b140:   00007f4a0849c2f0 00007f4a0849c280
+0x00007f4a0849b150:   00007f4a0bac2350 0000000000000025
+0x00007f4a0849b160:   00007f4a0bac2050 0000000000000000
+0x00007f4a0849b170:   0000000085210d88 0000000000000050
+0x00007f4a0849b180:   0000000000000005 00007f4a0849b960
+0x00007f4a0849b190:   00007f4a09f8fad8 00007f49f96def60
+0x00007f4a0849b1a0:   00007f4a0849b890 00007f4a2534d33d
+0x00007f4a0849b1b0:   00007f49faa688f0 00007f4a0849c110
+0x00007f4a0849b1c0:   00007f4a0849c110 00007f4a0849ef80
+0x00007f4a0849b1d0:   00007f4a00000001 00007f4a0849b958
+0x00007f4a0849b1e0:   000007ff00000000 00007f4a0849b250
+0x00007f4a0849b1f0:   0000000000000000 0000000000000000
+0x00007f4a0849b200:   0000000000000000 0000000000000000
+0x00007f4a0849b210:   0000000000000000 0000000000000000
+0x00007f4a0849b220:   00007f4a0849c110 00007f4a0be8b2a0
+0x00007f4a0849b230:   00007f4a0be8b090 00007f4a00000000
+0x00007f4a0849b240:   00007f4a0849ef80 00007f4a0849c110
+0x00007f4a0849b250:   00007f4a0849c280 00007f4a0b5a27a7
+0x00007f4a0849b260:   00007f4a0b5a2690 0000000000000000
+0x00007f4a0849b270:   00007f4a0849c2f0 00007f4a0849c280
+0x00007f4a0849b280:   00007f4a202fa000 000000010006def8
+0x00007f4a0849b290:   00007f4a0849b2c0 00007f4a25411209
+0x00007f4a0849b2a0:   00007f4a0849b4b0 00007f4a202fa000
+0x00007f4a0849b2b0:   00007f4a269004f0 00007f4a26900590
+0x00007f4a0849b2c0:   00007f4a0849b310 00007f4a255eaf70 
+
+Instructions: (pc=0x00007f4a25358ca4)
+0x00007f4a25358c84:   e7 e8 f6 b9 ff ff 49 8b 7d 28 49 8b 55 30 49 8b
+0x00007f4a25358c94:   45 20 eb a7 0f 1f 84 00 00 00 00 00 49 8b 45 20
+0x00007f4a25358ca4:   48 8b 40 f8 49 89 45 28 eb d4 66 90 49 89 54 24
+0x00007f4a25358cb4:   f8 bf 01 00 00 00 45 31 c9 31 c0 e9 4d ff ff ff 
+
+Register to memory mapping:
+
+RAX=0x000000007fffffff is an unknown value
+RBX=0x00007f4a0849b120 is pointing into the stack for thread: 0x00007f4a202fa000
+RCX=0xffffffffffffff01 is an unknown value
+RDX=0x00007f4a25e28968: <offset 0x1079968> in /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/server/libjvm.so at 0x00007f4a24daf000
+RSP=0x00007f4a0849b0d0 is pointing into the stack for thread: 0x00007f4a202fa000
+RBP=0x00007f4a0849b100 is pointing into the stack for thread: 0x00007f4a202fa000
+RSI=0x00007f4a0849b250 is pointing into the stack for thread: 0x00007f4a202fa000
+RDI=0x00007f4a0849b120 is pointing into the stack for thread: 0x00007f4a202fa000
+R8 =0x00007f4a0b5a2000 is an unknown value
+R9 =0x000000000000002c is an unknown value
+R10=0x00007f4a0be119a8 is at entry_point+2184 in (nmethod*)0x00007f4a0be10f50
+R11=0x0000000000000001 is an unknown value
+R12=0x00007f4a0849b288 is pointing into the stack for thread: 0x00007f4a202fa000
+R13=0x00007f4a0849ef80 is pointing into the stack for thread: 0x00007f4a202fa000
+R14=0x00007f4a0849b288 is pointing into the stack for thread: 0x00007f4a202fa000
+R15=0x00007f4a0849b120 is pointing into the stack for thread: 0x00007f4a202fa000
+
+
+Stack: [0x00007f4a083a1000,0x00007f4a084a1000],  sp=0x00007f4a0849b0d0,  free space=1000k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x5a9ca4]  frame::sender(RegisterMap*) const+0x324
+V  [libjvm.so+0x59dc16]  vframeStreamForte::forte_next()+0x86
+V  [libjvm.so+0x59e33d]  forte_fill_call_trace_given_top(JavaThread*, ASGCT_CallTrace*, int, frame) [clone .isra.15]+0x42d
+V  [libjvm.so+0x59ea88]  AsyncGetCallTrace+0x228
+C  [libasyncProfiler.so+0x16b03]  Profiler::getJavaTraceAsync(void*, ASGCT_CallFrame*, int)+0x83
+C  0x0000000000000000
+
+
+Current CompileTask:
+JVMCI:  93800 15584   !   4       java.util.zip.ZipFile::getEntry (101 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f49dc001000 JavaThread "Attach Listener" daemon [_thread_blocked, id=23524, stack(0x00007f49fab1c000,0x00007f49fac1d000)]
+  0x00007f49d803f800 JavaThread "HotSpotGraalManagement Bean Registration" daemon [_thread_blocked, id=23519, stack(0x00007f49fb21d000,0x00007f49fb31e000)]
+  0x00007f4a20331000 JavaThread "Service Thread" daemon [_thread_blocked, id=23514, stack(0x00007f4a0809d000,0x00007f4a0819e000)]
+  0x00007f4a202fe000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=23513, stack(0x00007f4a0819f000,0x00007f4a0829f000)]
+  0x00007f4a202fc000 JavaThread "JVMCI CompilerThread1" daemon [_thread_in_Java, id=23512, stack(0x00007f4a082a0000,0x00007f4a083a0000)]
+=>0x00007f4a202fa000 JavaThread "JVMCI CompilerThread0" daemon [_thread_in_Java, id=23511, stack(0x00007f4a083a1000,0x00007f4a084a1000)]
+  0x00007f4a202f8800 JavaThread "Monitor Ctrl-Break" daemon [_thread_in_native, id=23510, stack(0x00007f4a084a1000,0x00007f4a085a2000)]
+  0x00007f4a20188800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=23509, stack(0x00007f4a08673000,0x00007f4a08774000)]
+  0x00007f4a20154000 JavaThread "Finalizer" daemon [_thread_blocked, id=23508, stack(0x00007f4a08774000,0x00007f4a08875000)]
+  0x00007f4a2014f800 JavaThread "Reference Handler" daemon [_thread_blocked, id=23507, stack(0x00007f4a08875000,0x00007f4a08976000)]
+  0x00007f4a20010000 JavaThread "main" [_thread_in_Java, id=23501, stack(0x00007f4a26980000,0x00007f4a26a80000)]
+
+Other Threads:
+  0x00007f4a20148000 VMThread [stack: 0x00007f4a08977000,0x00007f4a08a77000] [id=23506]
+  0x00007f4a20334000 WatcherThread [stack: 0x00007f49fb31f000,0x00007f49fb41f000] [id=23515]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x0000000085200000, size: 1966 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ PSYoungGen      total 518656K, used 405256K [0x00000000d7100000, 0x00000000fec80000, 0x0000000100000000)
+  eden space 380928K, 88% used [0x00000000d7100000,0x00000000ebb64f48,0x00000000ee500000)
+  from space 137728K, 48% used [0x00000000f6600000,0x00000000fa75d260,0x00000000fec80000)
+  to   space 132096K, 0% used [0x00000000ee500000,0x00000000ee500000,0x00000000f6600000)
+ ParOldGen       total 430080K, used 161128K [0x0000000085200000, 0x000000009f600000, 0x00000000d7100000)
+  object space 430080K, 37% used [0x0000000085200000,0x000000008ef5a168,0x000000009f600000)
+ Metaspace       used 36394K, capacity 39754K, committed 39984K, reserved 1083392K
+  class space    used 5247K, capacity 5665K, committed 5680K, reserved 1048576K
+
+Card table byte_map: [0x00007f4a0acca000,0x00007f4a0b0a2000] byte_map_base: 0x00007f4a0a8a1000
+
+Marking Bits: (ParMarkBitMap*) 0x00007f4a25e27200
+ Begin Bits: [0x00007f4a00290000, 0x00007f4a02148000)
+ End Bits:   [0x00007f4a02148000, 0x00007f4a04000000)
+
+Polling page: 0x00007f4a26aa7000
+
+CodeCache: size=327680Kb used=44649Kb max_used=45587Kb free=283030Kb
+ bounds [0x00007f4a0b5a2000, 0x00007f4a0e262000, 0x00007f4a1f5a2000]
+ total_blobs=13796 nmethods=13262 adapters=450
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 92,879 Thread 0x00007f4a202fe000 nmethod 15580 0x00007f4a0cb64dd0 code [0x00007f4a0cb64f40, 0x00007f4a0cb650a8]
+Event: 92,880 Thread 0x00007f4a202fc000 nmethod 15568 0x00007f4a0e0963d0 code [0x00007f4a0e096ce0, 0x00007f4a0e09ca60]
+Event: 92,900 Thread 0x00007f4a202fe000 15581       1       org.graalvm.compiler.loop.DerivedOffsetInductionVariable::direction (8 bytes)
+Event: 92,900 Thread 0x00007f4a202fe000 nmethod 15581 0x00007f4a0c815f50 code [0x00007f4a0c8160c0, 0x00007f4a0c816208]
+Event: 92,925 Thread 0x00007f4a202fa000 nmethod 15576 0x00007f4a0c9efa10 code [0x00007f4a0c9efd40, 0x00007f4a0c9f1470]
+Event: 93,411 Thread 0x00007f4a202fc000 15582       4       fr.laas.fape.planning.core.planning.search.strategies.plans.SeqPlanComparator::g (53 bytes)
+Event: 93,424 Thread 0x00007f4a202fa000 15583       4       scala.runtime.ScalaRunTime$::arrayClass (36 bytes)
+Event: 93,428 Thread 0x00007f4a202fa000 nmethod 15583 0x00007f4a0c3b9a10 code [0x00007f4a0c3b9b80, 0x00007f4a0c3b9d70]
+Event: 93,524 Thread 0x00007f4a202fa000 15584   !   4       java.util.zip.ZipFile::getEntry (101 bytes)
+Event: 93,527 Thread 0x00007f4a202fc000 nmethod 15582 0x00007f4a0c9ed390 code [0x00007f4a0c9ed560, 0x00007f4a0c9edce0]
+
+GC Heap History (10 events):
+Event: 90,566 GC heap before
+{Heap before GC invocations=153 (full 9):
+ PSYoungGen      total 511488K, used 383936K [0x00000000d7100000, 0x0000000100000000, 0x0000000100000000)
+  eden space 356352K, 100% used [0x00000000d7100000,0x00000000ecd00000,0x00000000ecd00000)
+  from space 155136K, 17% used [0x00000000ecd00000,0x00000000ee7f0000,0x00000000f6480000)
+  to   space 156672K, 0% used [0x00000000f6700000,0x00000000f6700000,0x0000000100000000)
+ ParOldGen       total 430080K, used 138060K [0x0000000085200000, 0x000000009f600000, 0x00000000d7100000)
+  object space 430080K, 32% used [0x0000000085200000,0x000000008d8d3358,0x000000009f600000)
+ Metaspace       used 36390K, capacity 39754K, committed 39984K, reserved 1083392K
+  class space    used 5247K, capacity 5665K, committed 5680K, reserved 1048576K
+Event: 90,584 GC heap after
+Heap after GC invocations=153 (full 9):
+ PSYoungGen      total 514560K, used 28320K [0x00000000d7100000, 0x0000000100000000, 0x0000000100000000)
+  eden space 357888K, 0% used [0x00000000d7100000,0x00000000d7100000,0x00000000ece80000)
+  from space 156672K, 18% used [0x00000000f6700000,0x00000000f82a8000,0x0000000100000000)
+  to   space 156160K, 0% used [0x00000000ece80000,0x00000000ece80000,0x00000000f6700000)
+ ParOldGen       total 430080K, used 145279K [0x0000000085200000, 0x000000009f600000, 0x00000000d7100000)
+  object space 430080K, 33% used [0x0000000085200000,0x000000008dfdfe78,0x000000009f600000)
+ Metaspace       used 36390K, capacity 39754K, committed 39984K, reserved 1083392K
+  class space    used 5247K, capacity 5665K, committed 5680K, reserved 1048576K
+}
+Event: 91,128 GC heap before
+{Heap before GC invocations=154 (full 9):
+ PSYoungGen      total 514560K, used 386208K [0x00000000d7100000, 0x0000000100000000, 0x0000000100000000)
+  eden space 357888K, 100% used [0x00000000d7100000,0x00000000ece80000,0x00000000ece80000)
+  from space 156672K, 18% used [0x00000000f6700000,0x00000000f82a8000,0x0000000100000000)
+  to   space 156160K, 0% used [0x00000000ece80000,0x00000000ece80000,0x00000000f6700000)
+ ParOldGen       total 430080K, used 145279K [0x0000000085200000, 0x000000009f600000, 0x00000000d7100000)
+  object space 430080K, 33% used [0x0000000085200000,0x000000008dfdfe78,0x000000009f600000)
+ Metaspace       used 36390K, capacity 39754K, committed 39984K, reserved 1083392K
+  class space    used 5247K, capacity 5665K, committed 5680K, reserved 1048576K
+Event: 91,157 GC heap after
+Heap after GC invocations=154 (full 9):
+ PSYoungGen      total 406016K, used 48128K [0x00000000d7100000, 0x00000000ff580000, 0x0000000100000000)
+  eden space 357888K, 0% used [0x00000000d7100000,0x00000000d7100000,0x00000000ece80000)
+  from space 48128K, 100% used [0x00000000ece80000,0x00000000efd80000,0x00000000efd80000)
+  to   space 151040K, 0% used [0x00000000f6200000,0x00000000f6200000,0x00000000ff580000)
+ ParOldGen       total 430080K, used 152543K [0x0000000085200000, 0x000000009f600000, 0x00000000d7100000)
+  object space 430080K, 35% used [0x0000000085200000,0x000000008e6f7f58,0x000000009f600000)
+ Metaspace       used 36390K, capacity 39754K, committed 39984K, reserved 1083392K
+  class space    used 5247K, capacity 5665K, committed 5680K, reserved 1048576K
+}
+Event: 91,883 GC heap before
+{Heap before GC invocations=155 (full 9):
+ PSYoungGen      total 406016K, used 406016K [0x00000000d7100000, 0x00000000ff580000, 0x0000000100000000)
+  eden space 357888K, 100% used [0x00000000d7100000,0x00000000ece80000,0x00000000ece80000)
+  from space 48128K, 100% used [0x00000000ece80000,0x00000000efd80000,0x00000000efd80000)
+  to   space 151040K, 0% used [0x00000000f6200000,0x00000000f6200000,0x00000000ff580000)
+ ParOldGen       total 430080K, used 152543K [0x0000000085200000, 0x000000009f600000, 0x00000000d7100000)
+  object space 430080K, 35% used [0x0000000085200000,0x000000008e6f7f58,0x000000009f600000)
+ Metaspace       used 36390K, capacity 39754K, committed 39984K, reserved 1083392K
+  class space    used 5247K, capacity 5665K, committed 5680K, reserved 1048576K
+Event: 91,912 GC heap after
+Heap after GC invocations=155 (full 9):
+ PSYoungGen      total 514560K, used 50641K [0x00000000d7100000, 0x0000000100000000, 0x0000000100000000)
+  eden space 363520K, 0% used [0x00000000d7100000,0x00000000d7100000,0x00000000ed400000)
+  from space 151040K, 33% used [0x00000000f6200000,0x00000000f93747e0,0x00000000ff580000)
+  to   space 145408K, 0% used [0x00000000ed400000,0x00000000ed400000,0x00000000f6200000)
+ ParOldGen       total 430080K, used 161128K [0x0000000085200000, 0x000000009f600000, 0x00000000d7100000)
+  object space 430080K, 37% used [0x0000000085200000,0x000000008ef5a168,0x000000009f600000)
+ Metaspace       used 36390K, capacity 39754K, committed 39984K, reserved 1083392K
+  class space    used 5247K, capacity 5665K, committed 5680K, reserved 1048576K
+}
+Event: 92,633 GC heap before
+{Heap before GC invocations=156 (full 9):
+ PSYoungGen      total 514560K, used 414161K [0x00000000d7100000, 0x0000000100000000, 0x0000000100000000)
+  eden space 363520K, 100% used [0x00000000d7100000,0x00000000ed400000,0x00000000ed400000)
+  from space 151040K, 33% used [0x00000000f6200000,0x00000000f93747e0,0x00000000ff580000)
+  to   space 145408K, 0% used [0x00000000ed400000,0x00000000ed400000,0x00000000f6200000)
+ ParOldGen       total 430080K, used 161128K [0x0000000085200000, 0x000000009f600000, 0x00000000d7100000)
+  object space 430080K, 37% used [0x0000000085200000,0x000000008ef5a168,0x000000009f600000)
+ Metaspace       used 36390K, capacity 39754K, committed 39984K, reserved 1083392K
+  class space    used 5247K, capacity 5665K, committed 5680K, reserved 1048576K
+Event: 92,661 GC heap after
+Heap after GC invocations=156 (full 9):
+ PSYoungGen      total 508928K, used 58522K [0x00000000d7100000, 0x00000000fed80000, 0x0000000100000000)
+  eden space 363520K, 0% used [0x00000000d7100000,0x00000000d7100000,0x00000000ed400000)
+  from space 145408K, 40% used [0x00000000ed400000,0x00000000f0d26950,0x00000000f6200000)
+  to   space 138752K, 0% used [0x00000000f6600000,0x00000000f6600000,0x00000000fed80000)
+ ParOldGen       total 430080K, used 161128K [0x0000000085200000, 0x000000009f600000, 0x00000000d7100000)
+  object space 430080K, 37% used [0x0000000085200000,0x000000008ef5a168,0x000000009f600000)
+ Metaspace       used 36390K, capacity 39754K, committed 39984K, reserved 1083392K
+  class space    used 5247K, capacity 5665K, committed 5680K, reserved 1048576K
+}
+Event: 93,287 GC heap before
+{Heap before GC invocations=157 (full 9):
+ PSYoungGen      total 508928K, used 422042K [0x00000000d7100000, 0x00000000fed80000, 0x0000000100000000)
+  eden space 363520K, 100% used [0x00000000d7100000,0x00000000ed400000,0x00000000ed400000)
+  from space 145408K, 40% used [0x00000000ed400000,0x00000000f0d26950,0x00000000f6200000)
+  to   space 138752K, 0% used [0x00000000f6600000,0x00000000f6600000,0x00000000fed80000)
+ ParOldGen       total 430080K, used 161128K [0x0000000085200000, 0x000000009f600000, 0x00000000d7100000)
+  object space 430080K, 37% used [0x0000000085200000,0x000000008ef5a168,0x000000009f600000)
+ Metaspace       used 36390K, capacity 39754K, committed 39984K, reserved 1083392K
+  class space    used 5247K, capacity 5665K, committed 5680K, reserved 1048576K
+Event: 93,319 GC heap after
+Heap after GC invocations=157 (full 9):
+ PSYoungGen      total 518656K, used 66932K [0x00000000d7100000, 0x00000000fec80000, 0x0000000100000000)
+  eden space 380928K, 0% used [0x00000000d7100000,0x00000000d7100000,0x00000000ee500000)
+  from space 137728K, 48% used [0x00000000f6600000,0x00000000fa75d260,0x00000000fec80000)
+  to   space 132096K, 0% used [0x00000000ee500000,0x00000000ee500000,0x00000000f6600000)
+ ParOldGen       total 430080K, used 161128K [0x0000000085200000, 0x000000009f600000, 0x00000000d7100000)
+  object space 430080K, 37% used [0x0000000085200000,0x000000008ef5a168,0x000000009f600000)
+ Metaspace       used 36390K, capacity 39754K, committed 39984K, reserved 1083392K
+  class space    used 5247K, capacity 5665K, committed 5680K, reserved 1048576K
+}
+
+Class unloading (3 events):
+Event: 1,781 Thread 0x00007f4a20148000 unloaded java.lang.invoke.LambdaForm$BMH/1920467934 0x0000000100399028
+Event: 1,781 Thread 0x00007f4a20148000 unloaded org.graalvm.compiler.nodes.calc.ZeroExtendNode$$Lambda$102/1913904568 0x000000010033f828
+Event: 1,781 Thread 0x00007f4a20148000 unloaded org.graalvm.compiler.nodes.calc.ZeroExtendNode$$Lambda$100/213509367 0x000000010033f028
+
+Deoptimization events (10 events):
+Event: 64,444 Thread 0x00007f4a20010000 Uncommon trap: reason=bimorphic_or_optimized_type_check action=make_not_entrant pc=0x00007f4a0e2356e4 method=scala.collection.mutable.HashTable.findEntry0(Ljava/lang/Object;I)Lscala/collection/mutable/HashEntry; @ 9
+Event: 71,408 Thread 0x00007f4a20010000 Uncommon trap: reason=not_compiled_exception_handler action=make_not_entrant pc=0x00007f4a0da7b864 method=fr.laas.fape.planning.core.planning.states.PartialPlan.notify(Lfr/laas/fape/planning/core/planning/search/Handler$StateLifeTime;)V @ 31
+Event: 80,636 Thread 0x00007f4a20010000 Uncommon trap: reason=bimorphic_or_optimized_type_check action=make_not_entrant pc=0x00007f4a0c92c39f method=scala.collection.IterableLike.copyToArray(Ljava/lang/Object;II)V @ 71
+Event: 82,797 Thread 0x00007f4a20010000 Uncommon trap: reason=bimorphic_or_optimized_type_check action=make_not_entrant pc=0x00007f4a0c714d98 method=scala.Array$.fill(ILscala/Function0;Lscala/reflect/ClassTag;)Ljava/lang/Object; @ 30
+Event: 82,801 Thread 0x00007f4a20010000 Uncommon trap: reason=bimorphic_or_optimized_type_check action=make_not_entrant pc=0x00007f4a0df15e12 method=scala.Array$.fill(ILscala/Function0;Lscala/reflect/ClassTag;)Ljava/lang/Object; @ 30
+Event: 82,806 Thread 0x00007f4a202fc000 Uncommon trap: reason=null_assert_or_unreached0 action=reinterpret pc=0x00007f4a0d31c40d method=java.util.PriorityQueue.poll()Ljava/lang/Object; @ 0
+Event: 83,059 Thread 0x00007f4a20010000 Uncommon trap: reason=range_check action=reinterpret pc=0x00007f4a0e1cdc93 method=scala.collection.convert.Wrappers$IteratorWrapper.next()Ljava/lang/Object; @ 9
+Event: 83,114 Thread 0x00007f4a20010000 Uncommon trap: reason=range_check action=reinterpret pc=0x00007f4a0c78aeae method=fr.laas.fape.constraints.bindings.BindingConstraintNetwork.merge(II)V @ 227
+Event: 91,116 Thread 0x00007f4a20010000 Uncommon trap: reason=bimorphic_or_optimized_type_check action=make_not_entrant pc=0x00007f4a0c519100 method=scala.collection.mutable.HashTable.findEntry0(Ljava/lang/Object;I)Lscala/collection/mutable/HashEntry; @ 9
+Event: 91,932 Thread 0x00007f4a20010000 Uncommon trap: reason=bimorphic_or_optimized_type_check action=make_not_entrant pc=0x00007f4a0c4a9357 method=scala.runtime.Statics.anyHash(Ljava/lang/Object;)I @ 64
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 2,427 Thread 0x00007f4a20010000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$inEdges$0(Lfr/laas/fape/planning/core/planning/reachability/ReachabilityGraph$ActionNode;)Ljava/util/Iterator;> (0x00000000db955220) thrown at [/b/b/e/main/graal-jvmci-8/src/share/vm/inte
+Event: 2,428 Thread 0x00007f4a20010000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$inEdges$2(Lfr/laas/fape/planning/core/planning/reachability/TempFluent$DGFluent;)Ljava/util/Iterator;> (0x00000000db962a58) thrown at [/b/b/e/main/graal-jvmci-8/src/share/vm/interpreter/l
+Event: 2,445 Thread 0x00007f4a20010000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$outEdges$1(Lfr/laas/fape/planning/core/planning/reachability/ReachabilityGraph$ActionNode;)Ljava/util/Iterator;> (0x00000000dbdb5e58) thrown at [/b/b/e/main/graal-jvmci-8/src/share/vm/int
+Event: 2,446 Thread 0x00007f4a20010000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$outEdges$3(Lfr/laas/fape/planning/core/planning/reachability/TempFluent$DGFluent;)Ljava/util/Iterator;> (0x00000000dbdba260) thrown at [/b/b/e/main/graal-jvmci-8/src/share/vm/interpreter/
+Event: 2,576 Thread 0x00007f4a20010000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$find$1$adapted(Lscala/Function1;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000d7667620) thrown at [/b/b/e/main/graal-jvmci-8/src/share/vm/interpreter/linkResolver.cpp, line 597]
+Event: 2,692 Thread 0x00007f4a20010000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$minBy$0(Ljava/util/Comparator;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;> (0x00000000d8739fe0) thrown at [/b/b/e/main/graal-jvmci-8/src/share/vm/interpreter/linkResolver.cpp,
+Event: 4,467 Thread 0x00007f4a20010000 Implicit null exception at 0x00007f4a0cb2afe8 to 0x00007f4a0b5eb5ec
+Event: 5,538 Thread 0x00007f4a20010000 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.$anonfun$parents$1(Lfr/laas/fape/graph/core/Edge;)Ljava/lang/Object;> (0x00000000d7553100) thrown at [/b/b/e/main/graal-jvmci-8/src/share/vm/interpreter/linkResolver.cpp, line 597]
+Event: 22,315 Thread 0x00007f4a20010000 Implicit null exception at 0x00007f4a0caa2740 to 0x00007f4a0b5eb5ec
+Event: 22,327 Thread 0x00007f4a20010000 Implicit null exception at 0x00007f4a0c7b5dd3 to 0x00007f4a0b5eb5ec
+
+Events (10 events):
+Event: 91,912 Executing VM operation: ParallelGCFailedAllocation done
+Event: 91,932 Thread 0x00007f4a20010000 Uncommon trap: trap_request=0xffffffc4 fr.pc=0x00007f4a0c4a9357 relative=0x0000000000001217
+Event: 91,932 Thread 0x00007f4a20010000 DEOPT PACKING pc=0x00007f4a0c4a9357 sp=0x00007f4a26a7ddd0
+Event: 91,932 Thread 0x00007f4a20010000 DEOPT UNPACKING pc=0x00007f4a0b5eb859 sp=0x00007f4a26a7d448 mode 3
+Event: 92,633 Executing VM operation: ParallelGCFailedAllocation
+Event: 92,661 Executing VM operation: ParallelGCFailedAllocation done
+Event: 93,287 Executing VM operation: ParallelGCFailedAllocation
+Event: 93,319 Executing VM operation: ParallelGCFailedAllocation done
+Event: 93,524 loading class org/graalvm/compiler/lir/amd64/vector/AMD64VectorMove$StackMoveOp
+Event: 93,524 loading class org/graalvm/compiler/lir/amd64/vector/AMD64VectorMove$StackMoveOp done
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:01 17704202                           /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/bin/java
+00600000-00601000 r--p 00000000 08:01 17704202                           /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/bin/java
+00601000-00602000 rw-p 00001000 08:01 17704202                           /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/bin/java
+014eb000-0150c000 rw-p 00000000 00:00 0                                  [heap]
+85200000-9f600000 rw-p 00000000 00:00 0 
+9f600000-d7100000 ---p 00000000 00:00 0 
+d7100000-fec80000 rw-p 00000000 00:00 0 
+fec80000-100000000 ---p 00000000 00:00 0 
+100000000-10058c000 rw-p 00000000 00:00 0 
+10058c000-140000000 ---p 00000000 00:00 0 
+7f49bb3b4000-7f49c0000000 rw-p 00000000 00:00 0 
+7f49c0000000-7f49c0021000 rw-p 00000000 00:00 0 
+7f49c0021000-7f49c4000000 ---p 00000000 00:00 0 
+7f49c4000000-7f49c5ca4000 rw-p 00000000 00:00 0 
+7f49c5ca4000-7f49c8000000 ---p 00000000 00:00 0 
+7f49c8000000-7f49c845d000 rw-p 00000000 00:00 0 
+7f49c845d000-7f49cc000000 ---p 00000000 00:00 0 
+7f49cc000000-7f49cccec000 rw-p 00000000 00:00 0 
+7f49cccec000-7f49d0000000 ---p 00000000 00:00 0 
+7f49d0000000-7f49d0021000 rw-p 00000000 00:00 0 
+7f49d0021000-7f49d4000000 ---p 00000000 00:00 0 
+7f49d4000000-7f49d4a05000 rw-p 00000000 00:00 0 
+7f49d4a05000-7f49d8000000 ---p 00000000 00:00 0 
+7f49d8000000-7f49d86de000 rw-p 00000000 00:00 0 
+7f49d86de000-7f49dc000000 ---p 00000000 00:00 0 
+7f49dc000000-7f49dc021000 rw-p 00000000 00:00 0 
+7f49dc021000-7f49e0000000 ---p 00000000 00:00 0 
+7f49e0000000-7f49e0044000 rw-p 00000000 00:00 0 
+7f49e0044000-7f49e4000000 ---p 00000000 00:00 0 
+7f49e4000000-7f49e4021000 rw-p 00000000 00:00 0 
+7f49e4021000-7f49e8000000 ---p 00000000 00:00 0 
+7f49e8000000-7f49e8021000 rw-p 00000000 00:00 0 
+7f49e8021000-7f49ec000000 ---p 00000000 00:00 0 
+7f49ec000000-7f49ec021000 rw-p 00000000 00:00 0 
+7f49ec021000-7f49f0000000 ---p 00000000 00:00 0 
+7f49f0000000-7f49f0021000 rw-p 00000000 00:00 0 
+7f49f0021000-7f49f4000000 ---p 00000000 00:00 0 
+7f49f4000000-7f49f4023000 rw-p 00000000 00:00 0 
+7f49f4023000-7f49f8000000 ---p 00000000 00:00 0 
+7f49f87e2000-7f49f8ad1000 rw-p 00000000 00:00 0 
+7f49f8ad1000-7f49f8ae8000 r-xp 00000000 fd:00 1835044                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f49f8ae8000-7f49f8ce7000 ---p 00017000 fd:00 1835044                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f49f8ce7000-7f49f8ce8000 r--p 00016000 fd:00 1835044                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f49f8ce8000-7f49f8ce9000 rw-p 00017000 fd:00 1835044                    /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f49f8ce9000-7f49f8e62000 r-xp 00000000 fd:00 1312038                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7f49f8e62000-7f49f9062000 ---p 00179000 fd:00 1312038                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7f49f9062000-7f49f906c000 r--p 00179000 fd:00 1312038                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7f49f906c000-7f49f906e000 rw-p 00183000 fd:00 1312038                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25
+7f49f906e000-7f49f9072000 rw-p 00000000 00:00 0 
+7f49f9072000-7f49f9095000 r-xp 00000000 fd:02 3856668                    /home/arthur/bin/async-profiler/build/libasyncProfiler.so
+7f49f9095000-7f49f9295000 ---p 00023000 fd:02 3856668                    /home/arthur/bin/async-profiler/build/libasyncProfiler.so
+7f49f9295000-7f49f9296000 r--p 00023000 fd:02 3856668                    /home/arthur/bin/async-profiler/build/libasyncProfiler.so
+7f49f9296000-7f49f9297000 rw-p 00024000 fd:02 3856668                    /home/arthur/bin/async-profiler/build/libasyncProfiler.so
+7f49f9297000-7f49f989c000 rw-p 00000000 00:00 0 
+7f49f989c000-7f49f991c000 ---p 00000000 00:00 0 
+7f49f991c000-7f49f9b1c000 rw-p 00000000 00:00 0 
+7f49f9b1c000-7f49f9d1c000 rw-p 00000000 00:00 0 
+7f49f9d1c000-7f49f9f1c000 rw-p 00000000 00:00 0 
+7f49f9f1c000-7f49fa11c000 rw-p 00000000 00:00 0 
+7f49fa11c000-7f49fa31c000 rw-p 00000000 00:00 0 
+7f49fa31c000-7f49fa51c000 rw-p 00000000 00:00 0 
+7f49fa51c000-7f49fa71c000 rw-p 00000000 00:00 0 
+7f49fa71c000-7f49fa91c000 rw-p 00000000 00:00 0 
+7f49fa91c000-7f49fab1c000 rw-p 00000000 00:00 0 
+7f49fab1c000-7f49fab1f000 ---p 00000000 00:00 0 
+7f49fab1f000-7f49fae1d000 rw-p 00000000 00:00 0 
+7f49fae1d000-7f49fb01d000 rw-p 00000000 00:00 0 
+7f49fb01d000-7f49fb21d000 rw-p 00000000 00:00 0 
+7f49fb21d000-7f49fb220000 ---p 00000000 00:00 0 
+7f49fb220000-7f49fb31e000 rw-p 00000000 00:00 0 
+7f49fb31e000-7f49fb31f000 ---p 00000000 00:00 0 
+7f49fb31f000-7f49fb41f000 rw-p 00000000 00:00 0 
+7f49fb41f000-7f49fb430000 r-xp 00000000 08:01 17704306                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libnio.so
+7f49fb430000-7f49fb62f000 ---p 00011000 08:01 17704306                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libnio.so
+7f49fb62f000-7f49fb630000 r--p 00010000 08:01 17704306                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libnio.so
+7f49fb630000-7f49fb631000 rw-p 00011000 08:01 17704306                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libnio.so
+7f49fb631000-7f49fc000000 r--p 00000000 fd:00 1317574                    /usr/lib/locale/locale-archive
+7f49fc000000-7f49fc021000 rw-p 00000000 00:00 0 
+7f49fc021000-7f4a00000000 ---p 00000000 00:00 0 
+7f4a00016000-7f4a00079000 r--s 00e98000 08:01 17180397                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jvmci/graal.jar
+7f4a00079000-7f4a0008f000 r-xp 00000000 08:01 17704303                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libnet.so
+7f4a0008f000-7f4a0028e000 ---p 00016000 08:01 17704303                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libnet.so
+7f4a0028e000-7f4a0028f000 r--p 00015000 08:01 17704303                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libnet.so
+7f4a0028f000-7f4a00290000 rw-p 00016000 08:01 17704303                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libnet.so
+7f4a00290000-7f4a04000000 rw-p 00000000 00:00 0 
+7f4a04000000-7f4a04021000 rw-p 00000000 00:00 0 
+7f4a04021000-7f4a08000000 ---p 00000000 00:00 0 
+7f4a08032000-7f4a08034000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08034000-7f4a08036000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08036000-7f4a08038000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08038000-7f4a0803a000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a0803a000-7f4a0803c000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a0803c000-7f4a0803e000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a0803e000-7f4a08040000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08040000-7f4a08042000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08042000-7f4a08044000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08044000-7f4a08046000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08046000-7f4a08048000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08048000-7f4a0804a000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a0804a000-7f4a0804c000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a0804c000-7f4a0804e000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a0804e000-7f4a08050000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08050000-7f4a08052000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08052000-7f4a08054000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08054000-7f4a08056000 rw-s 00000000 00:0d 12645                      anon_inode:[perf_event]
+7f4a08056000-7f4a08057000 r--s 00005000 08:01 17180398                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jvmci/graal-management.jar
+7f4a08057000-7f4a08067000 r--s 000df000 08:01 17180396                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jvmci/enterprise-graal.jar
+7f4a08067000-7f4a0806b000 r--s 00076000 08:01 17180486                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jvmci/jvmci-hotspot.jar
+7f4a0806b000-7f4a0806f000 r--s 0004c000 08:01 17180484                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jvmci/jvmci-api.jar
+7f4a0806f000-7f4a0807a000 r--s 000c7000 08:01 17180413                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/truffle/truffle-nfi.jar
+7f4a0807a000-7f4a0807b000 r--s 00005000 08:01 17180417                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/truffle/locator.jar
+7f4a0807b000-7f4a0809d000 r--s 003a3000 08:01 17180409                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/truffle/truffle-api.jar
+7f4a0809d000-7f4a080a0000 ---p 00000000 00:00 0 
+7f4a080a0000-7f4a0819e000 rw-p 00000000 00:00 0 
+7f4a0819e000-7f4a0819f000 ---p 00000000 00:00 0 
+7f4a0819f000-7f4a081a2000 ---p 00000000 00:00 0 
+7f4a081a2000-7f4a0829f000 rw-p 00000000 00:00 0 
+7f4a0829f000-7f4a082a0000 ---p 00000000 00:00 0 
+7f4a082a0000-7f4a082a3000 ---p 00000000 00:00 0 
+7f4a082a3000-7f4a083a0000 rw-p 00000000 00:00 0 
+7f4a083a0000-7f4a083a1000 ---p 00000000 00:00 0 
+7f4a083a1000-7f4a083a4000 ---p 00000000 00:00 0 
+7f4a083a4000-7f4a084a1000 rw-p 00000000 00:00 0 
+7f4a084a1000-7f4a084a4000 ---p 00000000 00:00 0 
+7f4a084a4000-7f4a085a2000 rw-p 00000000 00:00 0 
+7f4a085a2000-7f4a085a4000 r--s 0001a000 08:01 17435215                   /mnt/data/Downloads/ideaIC-183.3975.18/idea-IC-183.3975.18/lib/idea_rt.jar
+7f4a085a4000-7f4a085ad000 r--s 00052000 fd:02 144108                     /home/arthur/.ivy2/cache/batik/batik-awt-util/jars/batik-awt-util-1.6-1.jar
+7f4a085ad000-7f4a085b3000 r--s 0003e000 fd:02 144072                     /home/arthur/.ivy2/cache/batik/batik-bridge/jars/batik-bridge-1.6-1.jar
+7f4a085b3000-7f4a085bb000 r--s 00033000 fd:02 144177                     /home/arthur/.ivy2/cache/batik/batik-css/jars/batik-css-1.6-1.jar
+7f4a085bb000-7f4a085be000 r--s 00013000 fd:02 144175                     /home/arthur/.ivy2/cache/batik/batik-dom/jars/batik-dom-1.6-1.jar
+7f4a085be000-7f4a085c3000 r--s 0000e000 fd:02 144172                     /home/arthur/.ivy2/cache/batik/batik-ext/jars/batik-ext-1.6-1.jar
+7f4a085c3000-7f4a085c9000 r--s 0001c000 fd:02 144171                     /home/arthur/.ivy2/cache/batik/batik-gui-util/jars/batik-gui-util-1.6-1.jar
+7f4a085c9000-7f4a085cd000 r--s 00026000 fd:02 144073                     /home/arthur/.ivy2/cache/batik/batik-gvt/jars/batik-gvt-1.6-1.jar
+7f4a085cd000-7f4a085cf000 r--s 00008000 fd:02 144176                     /home/arthur/.ivy2/cache/batik/batik-parser/jars/batik-parser-1.6-1.jar
+7f4a085cf000-7f4a085d2000 r--s 00007000 fd:02 144090                     /home/arthur/.ivy2/cache/batik/batik-script/jars/batik-script-1.6-1.jar
+7f4a085d2000-7f4a085de000 r--s 0005d000 fd:02 144091                     /home/arthur/.ivy2/cache/batik/batik-svg-dom/jars/batik-svg-dom-1.6-1.jar
+7f4a085de000-7f4a085e3000 r--s 0001d000 fd:02 144068                     /home/arthur/.ivy2/cache/batik/batik-swing/jars/batik-swing-1.6-1.jar
+7f4a085e3000-7f4a085e5000 r--s 00012000 fd:02 144158                     /home/arthur/.ivy2/cache/batik/batik-util/jars/batik-util-1.6-1.jar
+7f4a085e5000-7f4a085e6000 r--s 00004000 fd:02 144178                     /home/arthur/.ivy2/cache/batik/batik-xml/jars/batik-xml-1.6-1.jar
+7f4a085e6000-7f4a085e8000 r--s 0000f000 fd:02 144194                     /home/arthur/.ivy2/cache/com.martiansoftware/jsap/jars/jsap-2.1.jar
+7f4a085e8000-7f4a085f5000 r--s 000b1000 fd:02 144195                     /home/arthur/.ivy2/cache/de.sciss/prefuse-core/jars/prefuse-core-1.0.0.jar
+7f4a085f5000-7f4a085fc000 r--s 00049000 fd:02 144196                     /home/arthur/.ivy2/cache/lucene/lucene/jars/lucene-1.4.3.jar
+7f4a085fc000-7f4a08613000 r--s 00181000 fd:02 144250                     /home/arthur/.ivy2/cache/org.projectlombok/lombok/jars/lombok-1.18.2.jar
+7f4a08613000-7f4a0864a000 r--s 004cf000 fd:02 143313                     /home/arthur/.sbt/boot/scala-2.12.6/lib/scala-library.jar
+7f4a0864a000-7f4a0864d000 r--s 0002f000 fd:02 1669                       /home/arthur/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/bundles/scala-parser-combinators_2.12-1.0.4.jar
+7f4a0864d000-7f4a08660000 r--s 000d0000 fd:02 144179                     /home/arthur/.ivy2/cache/xerces/xercesImpl/jars/xercesImpl-2.5.0.jar
+7f4a08660000-7f4a08673000 r--s 00345000 08:01 17180470                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/resources.jar
+7f4a08673000-7f4a08676000 ---p 00000000 00:00 0 
+7f4a08676000-7f4a08774000 rw-p 00000000 00:00 0 
+7f4a08774000-7f4a08777000 ---p 00000000 00:00 0 
+7f4a08777000-7f4a08875000 rw-p 00000000 00:00 0 
+7f4a08875000-7f4a08878000 ---p 00000000 00:00 0 
+7f4a08878000-7f4a08976000 rw-p 00000000 00:00 0 
+7f4a08976000-7f4a08977000 ---p 00000000 00:00 0 
+7f4a08977000-7f4a09986000 rw-p 00000000 00:00 0 
+7f4a09986000-7f4a09b60000 r--s 03d6e000 08:01 17180466                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/rt.jar
+7f4a09b60000-7f4a0a737000 rw-p 00000000 00:00 0 
+7f4a0a737000-7f4a0a738000 ---p 00000000 00:00 0 
+7f4a0a738000-7f4a0a838000 rw-p 00000000 00:00 0 
+7f4a0a838000-7f4a0a839000 ---p 00000000 00:00 0 
+7f4a0a839000-7f4a0a939000 rw-p 00000000 00:00 0 
+7f4a0a939000-7f4a0a93a000 ---p 00000000 00:00 0 
+7f4a0a93a000-7f4a0ab0c000 rw-p 00000000 00:00 0 
+7f4a0ab0c000-7f4a0acca000 ---p 00000000 00:00 0 
+7f4a0acca000-7f4a0ad9c000 rw-p 00000000 00:00 0 
+7f4a0ad9c000-7f4a0af59000 ---p 00000000 00:00 0 
+7f4a0af59000-7f4a0b098000 rw-p 00000000 00:00 0 
+7f4a0b098000-7f4a0b0a1000 ---p 00000000 00:00 0 
+7f4a0b0a1000-7f4a0b155000 rw-p 00000000 00:00 0 
+7f4a0b155000-7f4a0b5a2000 ---p 00000000 00:00 0 
+7f4a0b5a2000-7f4a0e262000 rwxp 00000000 00:00 0 
+7f4a0e262000-7f4a1f5a2000 ---p 00000000 00:00 0 
+7f4a1f5a2000-7f4a1f5bc000 r-xp 00000000 08:01 17704299                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libzip.so
+7f4a1f5bc000-7f4a1f7bc000 ---p 0001a000 08:01 17704299                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libzip.so
+7f4a1f7bc000-7f4a1f7bd000 r--p 0001a000 08:01 17704299                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libzip.so
+7f4a1f7bd000-7f4a1f7be000 rw-p 0001b000 08:01 17704299                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libzip.so
+7f4a1f7be000-7f4a1f7c9000 r-xp 00000000 fd:00 1840623                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f4a1f7c9000-7f4a1f9c8000 ---p 0000b000 fd:00 1840623                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f4a1f9c8000-7f4a1f9c9000 r--p 0000a000 fd:00 1840623                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f4a1f9c9000-7f4a1f9ca000 rw-p 0000b000 fd:00 1840623                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f4a1f9ca000-7f4a1f9d0000 rw-p 00000000 00:00 0 
+7f4a1f9d0000-7f4a1f9e7000 r-xp 00000000 fd:00 1840617                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f4a1f9e7000-7f4a1fbe6000 ---p 00017000 fd:00 1840617                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f4a1fbe6000-7f4a1fbe7000 r--p 00016000 fd:00 1840617                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f4a1fbe7000-7f4a1fbe8000 rw-p 00017000 fd:00 1840617                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f4a1fbe8000-7f4a1fbea000 rw-p 00000000 00:00 0 
+7f4a1fbea000-7f4a1fbf5000 r-xp 00000000 fd:00 1840634                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f4a1fbf5000-7f4a1fdf4000 ---p 0000b000 fd:00 1840634                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f4a1fdf4000-7f4a1fdf5000 r--p 0000a000 fd:00 1840634                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f4a1fdf5000-7f4a1fdf6000 rw-p 0000b000 fd:00 1840634                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f4a1fdf6000-7f4a1fdfe000 r-xp 00000000 fd:00 1840619                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f4a1fdfe000-7f4a1fffe000 ---p 00008000 fd:00 1840619                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f4a1fffe000-7f4a1ffff000 r--p 00008000 fd:00 1840619                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f4a1ffff000-7f4a20000000 rw-p 00009000 fd:00 1840619                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f4a20000000-7f4a21dd7000 rw-p 00000000 00:00 0 
+7f4a21dd7000-7f4a24000000 ---p 00000000 00:00 0 
+7f4a24000000-7f4a24006000 r--s 00080000 fd:02 1460                       /home/arthur/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/bundles/scala-xml_2.12-1.0.6.jar
+7f4a24006000-7f4a2400c000 r--s 0008c000 fd:02 144174                     /home/arthur/.ivy2/cache/rhino/js/jars/js-1.5R4.1.jar
+7f4a2400c000-7f4a24010000 r--s 00010000 fd:02 144173                     /home/arthur/.ivy2/cache/xml-apis/xmlParserAPIs/jars/xmlParserAPIs-2.0.2.jar
+7f4a24010000-7f4a24023000 r--s 000d6000 08:01 17180457                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/plugin.jar
+7f4a24023000-7f4a24027000 r--s 000a1000 08:01 17180471                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jsse.jar
+7f4a24027000-7f4a24029000 r--s 00007000 08:01 17180479                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jfxswt.jar
+7f4a24029000-7f4a2402e000 r--s 00084000 08:01 17180443                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jfr.jar
+7f4a2402e000-7f4a24049000 r--s 0020c000 08:01 17180444                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/deploy.jar
+7f4a24049000-7f4a240bf000 rw-p 00000000 00:00 0 
+7f4a240bf000-7f4a240c0000 ---p 00000000 00:00 0 
+7f4a240c0000-7f4a241c0000 rw-p 00000000 00:00 0 
+7f4a241c0000-7f4a241ca000 r-xp 00000000 08:01 17704308                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libinstrument.so
+7f4a241ca000-7f4a243c9000 ---p 0000a000 08:01 17704308                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libinstrument.so
+7f4a243c9000-7f4a243ca000 r--p 00009000 08:01 17704308                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libinstrument.so
+7f4a243ca000-7f4a243cb000 rw-p 0000a000 08:01 17704308                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libinstrument.so
+7f4a243cb000-7f4a243f8000 r-xp 00000000 08:01 17704293                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libjava.so
+7f4a243f8000-7f4a245f7000 ---p 0002d000 08:01 17704293                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libjava.so
+7f4a245f7000-7f4a245f8000 r--p 0002c000 08:01 17704293                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libjava.so
+7f4a245f8000-7f4a245fa000 rw-p 0002d000 08:01 17704293                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libjava.so
+7f4a245fa000-7f4a24607000 r-xp 00000000 08:01 17704298                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libverify.so
+7f4a24607000-7f4a24806000 ---p 0000d000 08:01 17704298                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libverify.so
+7f4a24806000-7f4a24808000 r--p 0000c000 08:01 17704298                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libverify.so
+7f4a24808000-7f4a24809000 rw-p 0000e000 08:01 17704298                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/libverify.so
+7f4a24809000-7f4a24810000 r-xp 00000000 fd:00 1840674                    /lib/x86_64-linux-gnu/librt-2.27.so
+7f4a24810000-7f4a24a0f000 ---p 00007000 fd:00 1840674                    /lib/x86_64-linux-gnu/librt-2.27.so
+7f4a24a0f000-7f4a24a10000 r--p 00006000 fd:00 1840674                    /lib/x86_64-linux-gnu/librt-2.27.so
+7f4a24a10000-7f4a24a11000 rw-p 00007000 fd:00 1840674                    /lib/x86_64-linux-gnu/librt-2.27.so
+7f4a24a11000-7f4a24bae000 r-xp 00000000 fd:00 1840596                    /lib/x86_64-linux-gnu/libm-2.27.so
+7f4a24bae000-7f4a24dad000 ---p 0019d000 fd:00 1840596                    /lib/x86_64-linux-gnu/libm-2.27.so
+7f4a24dad000-7f4a24dae000 r--p 0019c000 fd:00 1840596                    /lib/x86_64-linux-gnu/libm-2.27.so
+7f4a24dae000-7f4a24daf000 rw-p 0019d000 fd:00 1840596                    /lib/x86_64-linux-gnu/libm-2.27.so
+7f4a24daf000-7f4a25b25000 r-xp 00000000 08:01 17704318                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/server/libjvm.so
+7f4a25b25000-7f4a25d25000 ---p 00d76000 08:01 17704318                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/server/libjvm.so
+7f4a25d25000-7f4a25e08000 rw-p 00d76000 08:01 17704318                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/amd64/server/libjvm.so
+7f4a25e08000-7f4a25e57000 rw-p 00000000 00:00 0 
+7f4a25e57000-7f4a2603e000 r-xp 00000000 fd:00 1840533                    /lib/x86_64-linux-gnu/libc-2.27.so
+7f4a2603e000-7f4a2623e000 ---p 001e7000 fd:00 1840533                    /lib/x86_64-linux-gnu/libc-2.27.so
+7f4a2623e000-7f4a26242000 r--p 001e7000 fd:00 1840533                    /lib/x86_64-linux-gnu/libc-2.27.so
+7f4a26242000-7f4a26244000 rw-p 001eb000 fd:00 1840533                    /lib/x86_64-linux-gnu/libc-2.27.so
+7f4a26244000-7f4a26248000 rw-p 00000000 00:00 0 
+7f4a26248000-7f4a2624b000 r-xp 00000000 fd:00 1840556                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7f4a2624b000-7f4a2644a000 ---p 00003000 fd:00 1840556                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7f4a2644a000-7f4a2644b000 r--p 00002000 fd:00 1840556                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7f4a2644b000-7f4a2644c000 rw-p 00003000 fd:00 1840556                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7f4a2644c000-7f4a26463000 r-xp 00000000 08:01 17828548                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/lib/amd64/jli/libjli.so
+7f4a26463000-7f4a26662000 ---p 00017000 08:01 17828548                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/lib/amd64/jli/libjli.so
+7f4a26662000-7f4a26663000 r--p 00016000 08:01 17828548                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/lib/amd64/jli/libjli.so
+7f4a26663000-7f4a26664000 rw-p 00017000 08:01 17828548                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/lib/amd64/jli/libjli.so
+7f4a26664000-7f4a2667e000 r-xp 00000000 fd:00 1840666                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f4a2667e000-7f4a2687d000 ---p 0001a000 fd:00 1840666                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f4a2687d000-7f4a2687e000 r--p 00019000 fd:00 1840666                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f4a2687e000-7f4a2687f000 rw-p 0001a000 fd:00 1840666                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f4a2687f000-7f4a26883000 rw-p 00000000 00:00 0 
+7f4a26883000-7f4a268aa000 r-xp 00000000 fd:00 1840505                    /lib/x86_64-linux-gnu/ld-2.27.so
+7f4a268aa000-7f4a268ab000 r--s 00000000 08:01 17180450                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/management-agent.jar
+7f4a268ab000-7f4a268ae000 r--s 0001a000 08:01 17180477                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jce.jar
+7f4a268ae000-7f4a2697f000 rw-p 00000000 00:00 0 
+7f4a2697f000-7f4a26980000 ---p 00000000 00:00 0 
+7f4a26980000-7f4a26983000 ---p 00000000 00:00 0 
+7f4a26983000-7f4a26a82000 rw-p 00000000 00:00 0 
+7f4a26a82000-7f4a26a8c000 r--s 0006e000 08:01 17180453                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/javaws.jar
+7f4a26a8c000-7f4a26a91000 r--s 002f9000 08:01 17180464                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/charsets.jar
+7f4a26a91000-7f4a26a98000 r--s 00059000 08:01 17697907                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/boot/graal-sdk.jar
+7f4a26a98000-7f4a26a9c000 r--s 000d7000 08:01 17697908                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/boot/graal-sdk.src.zip
+7f4a26a9c000-7f4a26a9d000 r--s 00007000 08:01 17697909                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/boot/graaljs-scriptengine.jar
+7f4a26a9d000-7f4a26a9e000 r--s 00003000 08:01 17180482                   /mnt/data/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jvmci-services.jar
+7f4a26a9e000-7f4a26aa6000 rw-s 00000000 fd:00 1447274                    /tmp/hsperfdata_arthur/23486
+7f4a26aa6000-7f4a26aa7000 rw-p 00000000 00:00 0 
+7f4a26aa7000-7f4a26aa8000 r--p 00000000 00:00 0 
+7f4a26aa8000-7f4a26aaa000 rw-p 00000000 00:00 0 
+7f4a26aaa000-7f4a26aab000 r--p 00027000 fd:00 1840505                    /lib/x86_64-linux-gnu/ld-2.27.so
+7f4a26aab000-7f4a26aac000 rw-p 00028000 fd:00 1840505                    /lib/x86_64-linux-gnu/ld-2.27.so
+7f4a26aac000-7f4a26aad000 rw-p 00000000 00:00 0 
+7ffc2fc1e000-7ffc2fc41000 rw-p 00000000 00:00 0                          [stack]
+7ffc2fd52000-7ffc2fd55000 r--p 00000000 00:00 0                          [vvar]
+7ffc2fd55000-7ffc2fd57000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -ea -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -javaagent:/mnt/data/Downloads/ideaIC-183.3975.18/idea-IC-183.3975.18/lib/idea_rt.jar=33307:/mnt/data/Downloads/ideaIC-183.3975.18/idea-IC-183.3975.18/bin -Dfile.encoding=UTF-8 
+java_command: fr.laas.fape.planning.Planning hsp.gen.pb.anml -n 30 --fast-forward false -q -t 20 --bind use-causal-network=false
+java_class_path (initial): /home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/charsets.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/deploy.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/ext/cldrdata.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/ext/dnsns.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/ext/jaccess.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/ext/jfxrt.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/ext/localedata.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/ext/nashorn.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/ext/sunec.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/ext/sunjce_provider.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/ext/sunpkcs11.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/ext/zipfs.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/javaws.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jce.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jfr.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jfxswt.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jsse.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/jvmci-services.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jre/lib/management-agent.jar:/home/arthur/Downloads/graalvm-ee-1.0.0-rc9-linux-amd64/graalvm-ee-1.0.0-rc9/jr
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/home/arthur/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+USERNAME=arthur
+LD_LIBRARY_PATH=:/home/arthur/work/ext/z3-4.6.0-x64-ubuntu-16.04/bin
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xb33c90], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xb33c90], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x975750], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x975750], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x975750], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x975750], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x975620], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x9759d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x9759d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x9759d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x9759d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION="Ubuntu 18.04.1 LTS"
+
+uname:Linux 4.15.0-38-generic #41-Ubuntu SMP Wed Oct 10 10:59:38 UTC 2018 x86_64
+libc:glibc 2.27 NPTL 2.27 
+rlimit: STACK 8192k, CORE 0k, NPROC 30911, NOFILE 4096, AS infinity
+load average:2,20 2,16 1,95
+
+/proc/meminfo:
+MemTotal:        8046128 kB
+MemFree:          442112 kB
+MemAvailable:    1156564 kB
+Buffers:           32184 kB
+Cached:          1221204 kB
+SwapCached:       217396 kB
+Active:          5944940 kB
+Inactive:        1221532 kB
+Active(anon):    5455748 kB
+Inactive(anon):   833388 kB
+Active(file):     489192 kB
+Inactive(file):   388144 kB
+Unevictable:          64 kB
+Mlocked:              64 kB
+SwapTotal:       8183804 kB
+SwapFree:        6670144 kB
+Dirty:              8752 kB
+Writeback:           804 kB
+AnonPages:       5909892 kB
+Mapped:           529392 kB
+Shmem:            376048 kB
+Slab:             246992 kB
+SReclaimable:     123020 kB
+SUnreclaim:       123972 kB
+KernelStack:       16544 kB
+PageTables:        67552 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    12206868 kB
+Committed_AS:   14113276 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      475920 kB
+DirectMap2M:     7790592 kB
+DirectMap1G:           0 kB
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-3
+cpu_memory_nodes: 0
+active_processor_count: 4
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -2
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 6897856512
+memory_max_usage_in_bytes: 7869804544
+
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x8e
+cpu MHz		: 3099.999
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 5424.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x8e
+cpu MHz		: 3100.000
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 5424.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x8e
+cpu MHz		: 3099.996
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 5424.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x8e
+cpu MHz		: 3100.008
+cache size	: 3072 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 5424.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 8046128k(442624k free), swap 8183804k(6670144k free)
+
+vm_info: GraalVM 1.0.0-rc9 (25.192-b12-jvmci-0.49) for linux-amd64 JRE (1.8.0), built on Oct 25 2018 16:54:48 by "buildslave" with gcc 4.9.1
+
+time: Wed Dec  5 15:42:24 2018
+timezone: CET
+elapsed time: 93 seconds (0d 0h 1m 33s)
+

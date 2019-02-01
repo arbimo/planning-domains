@@ -1,0 +1,98 @@
+
+
+type Void;
+instance Void void, delivered;
+
+type Hoist with {
+    fluent Position at;
+    constant boolean can_go(Position p);
+    fluent boolean free;
+};
+
+type Bar with {
+    fluent (Position or Hoist or Void) at;
+    //fluent boolean on_hoist(Hoist h);
+    fluent boolean processed(Position p);
+    fluent boolean finished(Position p);
+    fluent boolean is_ready(Position p);
+};
+
+type Position with {
+    fluent boolean free;
+};
+type StepPosition < Position;
+
+fluent boolean free(Position pos);
+constant boolean can_go(Bar b, Hoist h);
+
+instance Position plant_prepare_position, plant_finish_position;
+
+
+action prepare_bar(Bar b) {
+    motivated;
+    duration := 100;
+    [all] plant_prepare_position.free == true :-> false;
+    [all] b.at == void :-> plant_prepare_position;
+};
+
+action load(Hoist h, Bar b, Position p) {
+    motivated;
+    duration := 1;
+    [all] h.at == p;
+    [all] b.at == p :-> h; // effect bar_on_hoist
+    [all] h.free == true :-> false;
+    [all] p.free == false :-> true;
+    [end] b.processed(p) := true;
+};
+
+action unload(Hoist h, Bar b, Position p) {
+    motivated;
+    duration := 100;
+    [all] h.at == p;
+    [all] b.at == h :-> p; 
+    [all] h.free == false :-> true;
+    [all] p.free == true :-> false;
+};
+
+action move(Hoist h, Position from, Position to) {
+    duration := 10000;
+    from != to;
+    h.can_go(to);
+    [all] h.at == from :-> to;
+};
+
+action finish_bar(Bar b) {
+    motivated;
+    duration := 1;
+    [all] b.at == plant_finish_position :-> delivered;
+    [all] plant_finish_position.free == false :-> true;
+    [end] b.finished(plant_finish_position) := true;
+};
+
+action process(Bar b) {
+    motivated;
+    constant Hoist h1;
+    constant Hoist h2;
+
+    [all] ordered(
+        prep: prepare_bar(b),
+        ld: load(h1, b, plant_prepare_position),
+        uld: unload(h2, b, plant_finish_position),
+        fin: finish_bar(b)
+    );
+    //start(ld) = end(prep) + 60000;
+    //start(fin) = end(uld) + 60000;
+};
+
+action step(Bar b, StepPosition p) {
+    motivated;
+    constant Hoist h1;
+    constant Hoist h2;
+
+    [all] ordered(
+        uld: unload(h1, b, p),
+        ld: load(h2, b, p)
+    );
+    //start(ld) = end(uld) + 60000;
+};
+

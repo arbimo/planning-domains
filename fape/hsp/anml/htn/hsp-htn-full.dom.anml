@@ -1,0 +1,139 @@
+
+
+type Void;
+instance Void void;
+
+type Hoist with {
+    fluent Position at;
+    constant boolean can_go(Position p);
+    fluent boolean free;
+};
+
+type Bar with {
+    fluent (Position or Hoist or Void) at;
+    //fluent boolean on_hoist(Hoist h);
+    fluent boolean processed(Position p);
+    fluent boolean finished(Position p);
+    fluent boolean is_ready(Position p);
+};
+
+type Position with {
+    fluent boolean free;
+};
+
+fluent boolean free(Position pos);
+constant boolean can_go(Bar b, Hoist h);
+fluent Position plant_loading_position;
+fluent Position plant_unloading_position;
+
+
+action prepare_bar(Bar b, Position p) {
+    motivated;
+    duration := 100;
+    [all] plant_loading_position == p;
+    [all] p.free == true :-> false;
+    [all] b.at == void :-> p;
+};
+
+/*
+action load_op(Hoist h, Bar b, Position p) {
+    motivated;
+    duration := 1;
+    [all] h.at == p;
+    [all] b.at == p :-> h; // effect bar_on_hoist
+    [all] h.free == true :-> false;
+    [all] p.free == false :-> true;
+    [end] b.processed(p) := true;
+};
+
+
+action unload_op(Hoist h, Bar b, Position p) {
+    motivated;
+    duration := 100;
+    [all] h.at == p;
+    [all] b.at == h :-> p; 
+    [all] h.free == false :-> true;
+    [all] p.free == true :-> false;
+};
+*/
+
+action move(Hoist h, Position from, Position to) {
+    motivated;
+    duration := 10000;
+    from != to;
+    h.can_go(to);
+    [all] h.at == from :-> to;
+};
+
+
+action move_to(Hoist h, Position p) {
+  motivated;  
+  constant Position p_init;  
+  [start] h.at == p_init;
+  :decomposition{
+      p_init == p;
+      [all] h.at == p;
+  };
+  :decomposition {
+      p_init != p;
+      [all] move(h, p_init, p);
+  };
+};    
+/*
+action load(Hoist h, Bar b, Position p) {
+  motivated;  
+  [all] ordered(
+      mv: move_to(h, p),
+      ld: load_op(h,b,p));
+  [end(mv), end] h.at == p;
+};    
+*/
+action load(Hoist h, Bar b, Position p) {
+    motivated;
+    [start,end-1] move_to(h,p);
+    [end-1,end] h.at == p;
+    [end-1,end] b.at == p :-> h; // effect bar_on_hoist
+    [end-1,end] h.free == true :-> false;
+    [end-1,end] p.free == false :-> true;
+    [end] b.processed(p) := true;
+};
+action unload(Hoist h, Bar b, Position p) {
+    motivated;
+//    duration := 100;
+    [start,end-100] move_to(h,p);
+    [end-100,end] h.at == p;
+    [end-100,end] b.at == h :-> p; 
+    [end-100,end] h.free == false :-> true;
+    [end-100,end] p.free == true :-> false;
+};
+/*
+action unload(Hoist h, Bar b, Position p) {
+    motivated;
+    [all] ordered(
+      mv: move_to(h, p),
+      ul: unload_op(h,b,p));
+    [end(mv),end] h.at == p;
+};
+*/
+action finish_bar(Bar b, Position p) {
+    motivated;
+    duration := 1;
+    [all] plant_unloading_position == p;
+    //[start] b.is_ready(p) == true;
+    [all] b.at == p :-> void;
+    [all] p.free == false :-> true;
+    [end] b.finished(p) := true;
+};
+
+
+action step(Bar b, Position p) {
+    motivated;
+    constant Hoist h1;
+    constant Hoist h2;
+
+    [all] ordered(
+        uld: unload(h1, b, p),
+        ld: load(h2, b, p)
+    );
+    start(ld) = end(uld) + 60000;
+};

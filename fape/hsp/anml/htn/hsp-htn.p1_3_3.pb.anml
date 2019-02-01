@@ -1,0 +1,60 @@
+// instance1_3_3
+
+instance Hoist h0;
+instance Position p0, p1, p2;
+instance Bar b0, b1, b2;
+
+h0.can_go(p0) := true;
+h0.can_go(p1) := true;
+h0.can_go(p2) := true;
+
+
+
+action process(Bar b) {
+    motivated;
+    constant Position ps;
+    constant Position pe;
+    constant Hoist h;
+
+    [all] ordered(
+        prep: prepare_bar(b, ps),
+        ld: load(h, b, ps),
+        unordered(
+            step(b, p1)   
+        ),
+        uld: unload(h, b, pe),
+        fin: finish_bar(b, pe)
+    );
+    start(ld) = end(prep) + 60000;
+    start(fin) = end(uld) + 60000;
+};
+
+
+[start] {
+	b0.at := void;
+	b1.at := void;
+	b2.at := void;
+
+    
+	h0.at := p0;
+    
+
+	h0.free := true;
+
+
+	p0.free := true;
+	p1.free := true;
+	p2.free := true;
+    
+
+	plant_loading_position := p0;
+	plant_unloading_position := p2;
+};
+
+
+[all] contains {
+    	process(b0);
+	process(b1);
+	process(b2);
+    
+};

@@ -1,0 +1,46 @@
+// instance3_5_1
+
+instance Robot r0, r1, r2;
+instance Position p0, p1, p2, p3, p4;
+instance Treatment t0, t1, t2;
+instance Pallet b0;
+
+
+[start] {
+    	r0.at := p4;
+	r1.at := p4;
+	r2.at := p4;
+
+
+    	r0.free := true;
+	r1.free := true;
+	r2.free := true;
+
+
+    	b0.at := p4;
+
+    
+    	p0.free := true;
+	p1.free := true;
+	p2.free := true;
+	p3.free := true;
+	p4.free := true;
+
+};
+
+	p4.is_depot := true;
+
+
+p0.can_do(t0) := true;
+p1.can_do(t1) := true;
+p2.can_do(t2) := true;
+
+
+
+[all] contains unordered(
+  process(b0, t0),
+  process(b0, t1),
+  process(b0, t2)  
+);
+
+

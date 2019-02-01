@@ -1,0 +1,83 @@
+
+type Robot with {
+    fluent Position at;
+    fluent boolean free;
+};
+type Pallet with {
+    fluent (Position or Robot) at;
+    fluent boolean ready(Position p, Treatment t);
+    fluent boolean treated(Treatment t);
+};
+type Position with {
+    constant boolean can_do(Treatment p);
+    fluent boolean free;
+    constant boolean is_depot;
+};
+type Treatment;
+
+
+
+action move(Robot r, Position from, Position to) {
+  from != to;
+  [all] r.at == from :-> to;
+};
+
+action unload(Robot r, Pallet b, Position p, Treatment t) {
+    motivated;
+    p.can_do(t);
+    [all] r.free == false :-> true;
+    [all] p.free == true :-> false;
+    [all] r.at == p;
+    [all] b.at == r :-> p;
+};
+
+action load(Robot r, Pallet b, Position p, Treatment t) {
+    motivated;
+    [all] r.at == p;
+    [all] b.at == p :-> r;
+    [all] r.free == true :-> false;
+    [all] p.free == false :-> true;
+    [all] b.ready(p, t) == true :-> false;
+    [end] b.treated(t) := true;
+};
+
+action unload_at_depot(Robot r, Pallet b, Position p) {
+    p.is_depot == true;
+    [all] r.at == p;
+    [all] b.at == r :-> p;
+    [all] r.free == false :-> true;
+};
+
+action load_from_depot(Robot r, Pallet b, Position p) {
+    p.is_depot == true;
+    [all] r.at == p;
+    [all] b.at == p :-> r;
+    [all] r.free == true :-> false;
+};    
+
+action make_ready(Pallet b, Position p, Treatment t) {
+    motivated;
+    p.can_do(t) == true;
+    [all] b.at == p;
+    [end] b.ready(p, t) := true;
+};
+
+
+action process(Pallet b, Treatment t) {
+    motivated;
+    constant Position p;
+    constant Robot r1;
+    constant Robot r2;
+
+    [all] ordered(
+        uld: unload(r2, b, p, t),
+        mr: make_ready(b, p, t),
+        ld: load(r1, b, p, t)
+    );
+
+    
+    end(mr) = start(ld) - 1;
+    end(uld) <= start(mr) - 100;
+    end(uld) >= start(mr) - 200;
+
+};

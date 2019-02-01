@@ -1,0 +1,27 @@
+// ${instance_name}
+
+instance Robot ${anml_robots};
+instance Position ${anml_positions};
+instance Treatment ${anml_treatments};
+instance Pallet ${anml_pallets};
+
+
+[start] {
+    ${anml_robot_locs}
+
+    ${anml_robot_free}
+
+    ${anml_pallet_locs}
+    
+    ${anml_position_free}
+};
+
+${anml_depots}
+
+${anml_can_do}
+
+
+[all] contains unordered(
+  ${anml_processes}  
+);
+

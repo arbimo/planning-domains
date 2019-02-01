@@ -1,0 +1,147 @@
+// instance1_8_7
+
+instance Hoist h0;
+instance Position p0, p1, p2, p3, p4, p5, p6, p7;
+instance Bar b0, b1, b2, b3, b4, b5, b6;
+
+h0.can_go(p0) := true;
+h0.can_go(p1) := true;
+h0.can_go(p2) := true;
+h0.can_go(p3) := true;
+h0.can_go(p4) := true;
+h0.can_go(p5) := true;
+h0.can_go(p6) := true;
+h0.can_go(p7) := true;
+
+
+
+[start] {
+	b0.at := void;
+	b1.at := void;
+	b2.at := void;
+	b3.at := void;
+	b4.at := void;
+	b5.at := void;
+	b6.at := void;
+
+    
+	h0.at := p0;
+    
+
+	h0.free := true;
+
+
+	p0.free := true;
+	p1.free := true;
+	p2.free := true;
+	p3.free := true;
+	p4.free := true;
+	p5.free := true;
+	p6.free := true;
+	p7.free := true;
+    
+
+	plant_loading_position := p0;
+	plant_unloading_position := p7;
+};
+
+/*
+[end] {
+	b0.processed(p0) == true;
+	b1.processed(p0) == true;
+	b2.processed(p0) == true;
+	b3.processed(p0) == true;
+	b4.processed(p0) == true;
+	b5.processed(p0) == true;
+	b6.processed(p0) == true;
+	b0.processed(p1) == true;
+	b1.processed(p1) == true;
+	b2.processed(p1) == true;
+	b3.processed(p1) == true;
+	b4.processed(p1) == true;
+	b5.processed(p1) == true;
+	b6.processed(p1) == true;
+	b0.processed(p2) == true;
+	b1.processed(p2) == true;
+	b2.processed(p2) == true;
+	b3.processed(p2) == true;
+	b4.processed(p2) == true;
+	b5.processed(p2) == true;
+	b6.processed(p2) == true;
+	b0.processed(p3) == true;
+	b1.processed(p3) == true;
+	b2.processed(p3) == true;
+	b3.processed(p3) == true;
+	b4.processed(p3) == true;
+	b5.processed(p3) == true;
+	b6.processed(p3) == true;
+	b0.processed(p4) == true;
+	b1.processed(p4) == true;
+	b2.processed(p4) == true;
+	b3.processed(p4) == true;
+	b4.processed(p4) == true;
+	b5.processed(p4) == true;
+	b6.processed(p4) == true;
+	b0.processed(p5) == true;
+	b1.processed(p5) == true;
+	b2.processed(p5) == true;
+	b3.processed(p5) == true;
+	b4.processed(p5) == true;
+	b5.processed(p5) == true;
+	b6.processed(p5) == true;
+	b0.processed(p6) == true;
+	b1.processed(p6) == true;
+	b2.processed(p6) == true;
+	b3.processed(p6) == true;
+	b4.processed(p6) == true;
+	b5.processed(p6) == true;
+	b6.processed(p6) == true;
+    
+};
+*/
+
+[all] contains {
+    	step(b0, p1);
+	step(b1, p1);
+	step(b2, p1);
+	step(b3, p1);
+	step(b4, p1);
+	step(b5, p1);
+	step(b6, p1);
+	step(b0, p2);
+	step(b1, p2);
+	step(b2, p2);
+	step(b3, p2);
+	step(b4, p2);
+	step(b5, p2);
+	step(b6, p2);
+	step(b0, p3);
+	step(b1, p3);
+	step(b2, p3);
+	step(b3, p3);
+	step(b4, p3);
+	step(b5, p3);
+	step(b6, p3);
+	step(b0, p4);
+	step(b1, p4);
+	step(b2, p4);
+	step(b3, p4);
+	step(b4, p4);
+	step(b5, p4);
+	step(b6, p4);
+	step(b0, p5);
+	step(b1, p5);
+	step(b2, p5);
+	step(b3, p5);
+	step(b4, p5);
+	step(b5, p5);
+	step(b6, p5);
+	step(b0, p6);
+	step(b1, p6);
+	step(b2, p6);
+	step(b3, p6);
+	step(b4, p6);
+	step(b5, p6);
+	step(b6, p6);
+    
+};

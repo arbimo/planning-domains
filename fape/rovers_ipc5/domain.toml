@@ -1,0 +1,17 @@
+DOM="rovers_ipc5"
+
+[pddl]
+lang="pddl"
+domain-file="./pddl/{DOM}.dom.pddl"
+problem-file="./pddl/{DOM}.{PB}.pb.pddl"
+
+[anml-flat]
+lang="anml"
+domain-file="./anml/{DOM}.dom.anml"
+problem-file="./anml/{DOM}.{PB}.pb.anml"
+
+[anml-part-hier]
+lang="anml"
+features = ["htn"]
+domain-file="./anml-part-hier/{DOM}-hier.dom.anml"
+problem-file="./anml-part-hier/{DOM}-hier.{PB}.pb.anml"
